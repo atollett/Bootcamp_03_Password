@@ -3,64 +3,41 @@
   <head>
     <meta charset="UTF-8">
     <title>Password</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">>
   </head>
   <body>
 
-    <script>
+    <h1 style="text-align: center;">Generate Password</h1>
 
-      var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-      var special = ['!', '#', '$', '%', '&', '(', ')', '*','+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
-      var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-      var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    <!-- implements grid system -->
+    <div class="container">
+      <!-- begins with row -->
+      <div class="row">
 
-      var includeNum = false;
-      var includeSpecial = false;
-      var includeUpper = false;
-      var includeLower = false;
+        <div class="col-md-3"></div>
+        <!-- implements center grid with a password box and generate button -->
+        <div class="col-md-6">
+            <div class="form-group">
+              <!-- password box -->
+              <textarea class="form-control" placeholder="Secure Password" id="response" rows="6"></textarea>
+            </div>
+            <!-- generate button -->
+            <div style="text-align:center;">
+              <button id="generate">Generate</button>
+            </div>
+        </div>
+      </div>  
+    </div>
 
-      while (!includeNum && !includeSpecial && !includeUpper && !includeLower) {
-        includeNum = confirm("Include numbers?");
-        includeSpecial = confirm("Include special characters?");
-        includeUpper = confirm("Include upper case?");
-        includeLower = confirm("Include lower case?");
-      }
-    
-      var length = 0;
-      var password = "";
-      var randOverall = 0;
-      var randNum = 0;
-      
-      while (length < 8 || length > 128) {
-          length = prompt("Length of password?");
-      }
+    <script src="./script.js"></script>
 
-      while (password.length < length) {
-          randOverall = Math.floor(Math.random() * 4);
 
-          if (randOverall === 0 && includeNum) {
-              randNum = Math.floor(Math.random() * 10);
-              password = password + numbers[randNum];
-          }
-
-          else if (randOverall === 1 && includeSpecial) {
-              randNum = Math.floor(Math.random() * 28);
-              password = password + special[randNum];
-          }
-
-          else if (randOverall === 2 && includeUpper) {
-              randNum = Math.floor(Math.random() * 26);
-              password = password + upperCase[randNum];
-          }
-
-          else if (randOverall === 3 && includeLower) {
-              randNum = Math.floor(Math.random() * 26);
-              password = password + lowerCase[randNum];
-          }
-      }
-
-      alert(password);
-
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
+
+  
 </html>
